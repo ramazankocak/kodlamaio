@@ -1,0 +1,57 @@
+Veri Tipleri;
+# metinsel veri tipi : string
+  -string : herhangi bir kelime, metin gibi bir veriyi belirtir.
+# numeric veri tipi : int, long, float, complex
+   -int   : integer değerleri yani tam sayıları belirtir.
+   -long  : daha uzun integer veri tipi diyebiliriz.
+   -float : ondalıklı sayıları belirtir.
+   -complex : kompleks sayıları belirtir. ('x+yj' gibi)
+# boolean veri tipi : bool -> True ve False olarak bilinen iki değeride belirtir.
+# dizi veri tipleri : list, tuple
+   -list : içerisinde bir veya daha fazla veri tutabilmemzi sağlayan bir veri tipidir.
+   -tuple : list 'ten farkı elemanları sonradan değiştirilemez.
+# mapping veri tipi : dict
+   -dict : {key : value } şeklinde tanımlanan liste gibi diyebiliriz. Elemanlarını key 'i kullanarak çağırırız.
+# set veri tipi : sırasız, elemanları değiştiilemez ve indekslenmemiştir. {a,b,c,1,2,3}
+
+
+*******************************************************************
+
+kodlama.io sitesinde ki değişkenler;
+
+"Profil Düzenle" kısmında Full Name, Email ve Password kısımlarına girilen veriler string verilerdir.
+kodlama.io/courses/category/programlama 'da kamp adet bilgisi var integer veridir.
+
+
+*******************************************************************
+
+kodlama.io sitesinde 
+
+"Kurs Bul" kısmına yazdığımız metin kurs kategori başlıklarında/listesinde aranır ve varsa listelenir yoksa boş sayfa görüyoruz.
+
+Kodumuz;
+
+kurslar = ["Yazılım Geliştirici Yetiştirme Kampı (JAVA & REACT)",
+	   "(2022) Yazılım Geliştirici Yetiştirme Kampı (JAVA)",
+	   "Yazılım Geliştirici Yetiştirme Kampı (JavaScript)",
+	   "Yazılım Geliştirici Yetiştirme Kampı",
+	   "(2023) Yazılım Geliştirici Yetiştirme Kampı - Python & Selenium",
+	   "Senior Yazılım Geliştirici Yetiştirme Kampı",
+	   "Programlamaya Giriş için Temel Kurs"]
+liste = []
+#Doğru arama yapmak için kurslar listesindeki tüm elemanları küçük harfli olarak liste'ye ekliyoruz.
+for x in kurslar:
+	liste.append(x.lower())
+
+while True:
+    ara = input("Kurs bul:")
+    for i in liste:
+	#Kurs bul kısmına birşey yazmadan arama yaptığımda hepsi gösteriliyor.
+        if ara == "":
+            for j in kurslar:
+                print(j)
+            break
+        elif ara in i:
+            print(i.title())
+        else:
+            print()
